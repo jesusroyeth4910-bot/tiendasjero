@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiendas Jero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            color: #f0f0f0;
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            max-width: 200px;
+            height: auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        nav {
+            background-color: #5a67d8;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        section {
+            background-color: white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            color: #5a67d8;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        section p {
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        aside {
+            background-color: white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #5a67d8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        aside h3 {
+            color: #5a67d8;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        aside h3:first-child {
+            margin-top: 0;
+        }
+
+        aside p {
+            color: #555;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        aside img {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        aside ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        aside li {
+            margin-bottom: 10px;
+        }
+
+        aside a {
+            text-decoration: none;
+            color: #5a67d8;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        aside a:hover {
+            background-color: #eef2ff;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 20px 15px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .tabla-section {
+            background-color: white;
+            margin: 20px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .tabla-section h2 {
+            text-align: center;
+            color: #5a67d8;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        thead th {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tbody td {
+            padding: 15px;
+            text-align: center;
+            color: #555;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #eef2ff;
+            transition: background-color 0.3s ease;
+        }
+
+        tfoot {
+            background-color: #f3f4f6;
+        }
+
+        tfoot td {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #5a67d8;
+        }
+
+        .form-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 20px;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            color: #5a67d8;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .form-section form table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-section table tr th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+        }
+
+        .form-section table tr td {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px;
+        }
+
+        .form-section table tr td:first-child {
+            background-color: #f9fafb;
+            font-weight: 500;
+            width: 40%;
+            color: #555;
+        }
+
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="date"],
+        .form-section input[type="number"],
+        .form-section select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-section input[type="text"]:focus,
+        .form-section input[type="email"]:focus,
+        .form-section input[type="date"]:focus,
+        .form-section input[type="number"]:focus,
+        .form-section select:focus {
+            outline: none;
+            border-color: #5a67d8;
+            box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.1);
+        }
+
+        .form-section button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            section, aside, .tabla-section, .form-section {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            thead th, tbody td, tfoot td {
+                padding: 10px;
+            }
+
+            aside p {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Tiendas Jero</h1>
+    <p>"Tu tienda de confianza"
+    </p> <img src="C:\Users\USUARIO\Desktop\Parcial final_Jesus manuel royeth galvan_Web\imagenes\logo tiendas Jero.png" alt="logo de tiendas Jero" width="200" style="display:block; margin:auto;">
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#">📦 Delivery: Rappi, Didi Food, iFood</a></li>
+        <li><a href="#">📞 Teléfono: 332501</a></li>
+        <li><a href="#">💬 WhatsApp: 3044530082</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>Bienvenido a Tiendas Jero</h2>
+    <p>
+        En Tiendas Jero encuentras todo lo que necesitas para la canasta familiar: víveres, abarrotes,
+        productos de aseo, bebidas, frutas y mucho más. Somos tu tienda de confianza, siempre con los mejores 
+        precios y un excelente servicio al cliente.
+    </p>
+</section>
+
+<div class="tabla-section">
+    <h2>Tabla de Productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Productos</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Arroz Diana</td>
+                <td>Granos</td>
+                <td>$25,000</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>Gaseosa</td>
+                <td>Bebidas</td>
+                <td>$3,500</td>
+                <td>55</td>
+            </tr>
+            <tr>
+                <td>Carnes</td>
+                <td>Alimento</td>
+                <td>$15,000</td>
+                <td>10 lb</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Información de productos disponibles</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<aside>
+    <h3>🎉 Promociones Especiales</h3>
+    
+        </p> <img src="C:\Users\USUARIO\Desktop\Parcial final_Jesus manuel royeth galvan_Web\imagenes\promocion perros calientes.jpg"alt="promocion perros calientes" width="133"> Gaseosa mini en combo mas un perro caliente por solo 5.000 $.</p>
+        <p> <img src="C:\Users\USUARIO\Desktop\Parcial final_Jesus manuel royeth galvan_Web\imagenes\descuentos.png"  alt="descuentos" width="135">  del 40% dto en chocolates mym por solo 10.400 $ </p>  
+        <p> <img src="C:\Users\USUARIO\Desktop\Parcial final_Jesus manuel royeth galvan_Web\imagenes\promociones snack.png"  alt="promociones snack" width="135">50% en la segunda und snack alpina parmesano desidratado paquete x 23g $9.300</p>
+        <p> <img src="C:\Users\USUARIO\Desktop\Parcial final_Jesus manuel royeth galvan_Web\imagenes\promocion escobas.png"alt="promocion escobas" width="135"> 50 % de  dto en segunda unidad escoba task por solo 16.950 $ </p>
+
+
+    <h3>📱 Síguenos en Redes Sociales</h3>
+    <ul>
+        <li><a href="#">👍 Facebook: jerotiendas</a></li>
+        <li><a href="#">📸 Instagram: tiendas_jero</a></li>
+    </ul>
+</aside>
+
+<div class="form-section">
+    <h2>📝 Formulario de Registro de Pedidos</h2>
+    <form>
+        <table>
+            <tr>
+                <th colspan="2">Datos Personales</th>
+            </tr>
+            <tr>
+                <td><label for="nombre">Nombre Completo:</label></td>
+                <td><input type="text" id="nombre" name="nombre" required></td>
+            </tr>
+            <tr>
+                <td><label for="telefono">Número de teléfono:</label></td>
+                <td><input type="text" id="telefono" name="telefono" required></td>
+            </tr>
+            <tr>
+                <td><label for="fecha_pedido">Fecha del pedido:</label></td>
+                <td><input type="date" id="fecha_pedido" name="fecha_pedido" required></td>
+            </tr>
+            <tr>
+                <td><label for="correo">Correo Electrónico:</label></td>
+                <td><input type="email" id="correo" name="correo" required></td>
+            </tr>
+            <tr>
+                <th colspan="2">Datos del Pedido</th>
+            </tr>
+            <tr>
+                <td><label for="producto">Producto:</label></td>
+                <td>
+                    <select id="producto" name="producto" required>
+                        <option value="">Seleccione un producto...</option>
+                        <option value="arroz_diana">Arroz Diana - $25,000</option>
+                        <option value="gaseosa">Gaseosa - $3,500</option>
+                        <option value="carnes">Carnes - $15,000/lb</option>
+                        <option value="perro_caliente">Combo Perro Caliente - $5,000</option>
+                        <option value="chocolates_mm">Chocolates M&M - $10,400</option>
+                        <option value="snack_alpina">Snack Alpina Parmesano - $9,300</option>
+                        <option value="escoba_task">Escoba Task - $16,950</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="metodo_pago">Método de pago:</label></td>
+                <td>
+                    <select id="metodo_pago" name="metodo_pago" required>
+                        <option value="">Seleccione...</option>
+                        <option value="tarjeta">Tarjeta</option>
+                        <option value="efectivo">Efectivo</option>
+                        <option value="nequi">Nequi</option>
+                        <option value="sistecredito">Sistecredito o Addi</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="cantidad">Cantidad:</label></td>
+                <td><input type="number" id="cantidad" name="cantidad" min="1" required></td>
+            </tr>
+            <tr>
+                <td><label for="direccion">Dirección de entrega:</label></td>
+                <td><input type="text" id="direccion" name="direccion" placeholder="Ej: Calle 10 #15-20, Barrio Centro" required></td>
+            </tr>
+            <tr>
+                <td><label for="observaciones">Observaciones:</label></td>
+                <td><input type="text" id="observaciones" name="observaciones" placeholder="Instrucciones adicionales (opcional)"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center; background-color: white; padding-top: 20px;">
+                    <button type="submit">Registrar Pedido</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<footer>
+    <p><strong>Autor:</strong> Jesús Royeth | <strong>Año:</strong> 2025</p>
+    <p><strong>Email:</strong> tiendas.jero@email.com</p>
+    <p>&copy; 2025 Tiendas Jero - Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

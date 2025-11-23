@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registro de Empleados</title>
+<style>
+table { border-collapse: collapse; width: 80%; margin: 20px auto; }
+th, td { border: 1px solid hwb(0 100% 0%); padding: 8px; text-align: left; }
+th, td { border: 1px solid white; padding: 8px; text-align: left; }
+th { background-color: whitesmoke; }
+input, select { width: 100%; padding: 5px; }
+</style>
+</head>
+<body>
+  <div class="form-section">
+        <h2> Formulario de Registro de pedidos</h2>
+        <form action="/guardar-empleado" method="POST">
+            <table>
+                <tr>
+                    <th colspan="2">Datos Personales</th>
+                </tr>
+                <tr>
+                    <td><label for="nombre">Nombre Completo:</label></td>
+                    <td><input type="text" id="nombre" name="nombre" required></td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                    <td><label for="telefono">numero de telefono:</label></td>
+                    <td><input type="text" id="nombre" name="telefono" required></td>
+                </tr>
+                <tr>
+                    <td><label for="fecha_nac">Fecha del pedido:</label></td>
+                    <td><input type="date" id="fecha_nac" name="fecha_nac" required></td>
+                </tr>
+                <tr>
+                   
+                </tr>
+                <tr>
+                    <td><label for="correo">Correo Electrónico:</label></td>
+                    <td><input type="email" id="correo" name="correo" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2">Datos del pedido</th>
+                </tr>
+                <tr>
+                    <td><label for="metodo de pago">metodo de pago:</label></td>
+                    <td>
+                        <select id="cantidad" name="cantidad" required>
+                            <option value="">Seleccione...</option>
+                            <option value="targeta">targeta</option>
+                            <option value="efectivo">efectivo</option>
+                            <option value="nequi">nequi</option>
+                            <option value="sistecredito o addy">sistecredito o addy</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cantidad">cantidad:</label></td>
+                    <td><input type="text" id="cantidad" name="puesto" required></td>
+                </tr>
+                <tr>
+                    <td><label for="precio unitario">precio unitario ($):</label></td>
+                    <td><input type="number" id="salario" name="salario" min="1000" required></td>
+               
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit">Registrar Empleado</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</form>
